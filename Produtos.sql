@@ -1,9 +1,9 @@
 SELECT PRO.CODPROD AS "Produto ID",
        PRO.DESCRPROD AS "Produto",
-       GRU.CODPROD AS "Grupo de Produtos ID",
-       GRU.DESCRPROD AS "Grupo de Produtos",
-       PRO.MARCA AS "Marca ID",
-       PRO.MARCA AS "Marca "
+       GRU.CODGRUPOPROD AS "Grupo de Produtos ID",
+       GRU.DESCRGRUPOPROD AS "Grupo de Produtos",
+       NVL(PRO.MARCA, 'N/A') AS "Marca ID",
+       NVL(PRO.MARCA, 'Sem marca') AS "Marca "
        
 FROM TGFPRO PRO 
-LEFT JOIN TGFPRO GRU ON PRO.CODGRUPOPROD = GRU.CODGRUPOPROD
+LEFT JOIN TGFGRU GRU ON PRO.CODGRUPOPROD = GRU.CODGRUPOPROD
